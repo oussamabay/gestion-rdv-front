@@ -9,13 +9,20 @@ import { login } from "./login";
 })
 export class LogintService{
 
-private curreentUserSubject !: BehaviorSubject<login>
-public currentuser!:Observable<login>
+    private currentUserSubject: BehaviorSubject<login>;
+    public currentUser: Observable<login>;
 
+constructor(private http: HttpClient, private httpClient: HttpClient) {
+  
+    this.currentUserSubject = new BehaviorSubject<login>(
+      JSON.parse(localStorage.getItem("currentUser")|| '{}')
+    );
 
-constructor(private http : HttpClient){
-
+    this.currentUser = this.currentUserSubject.asObservable();
 }
+  public get currentUserValue(): login {
+    return this.currentUserSubject.value;
+  }
 
 
 
@@ -27,7 +34,7 @@ login(connexion:any){
                 localStorage.setItem("Role",userconnexion.profil)
                 localStorage.setItem("Email",userconnexion.email)
                 localStorage.setItem("Token",userconnexion.token)
-                this.curreentUserSubject.next(userconnexion);
+                this.currentUserSubject.next(userconnexion);
                 return userconnexion
             }
         }
