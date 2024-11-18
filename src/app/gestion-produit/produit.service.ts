@@ -23,22 +23,25 @@ constructor(private http : HttpClient){}
     return this.http.post(CONFIG.URL+"produit/ajout?email="+localStorage.getItem("Email")+"&nomcat="+nomcat,prod,{headers:headers});
  }
 
-
- archiver(id:any){
+ archiver(id: any) {
     const token = localStorage.getItem("Token");
     let headers = new HttpHeaders();
-    headers= headers.set("Authorization",'Bearer '+token)
-    console.log(token)
+    headers = headers.set('Content-Type', 'application/json; charset=utf-8');
+    headers = headers.set("Authorization", 'Bearer ' + token);
 
-    return this.http.put(CONFIG.URL+"produit/archiver?id="+id,{headers:headers});
- }
- 
+    // L'objet options doit contenir les headers
+    const options = { headers: headers, responseType: 'text' as const };
+
+    return this.http.put(CONFIG.URL + "produit/archiver?id=" + id, null, options);
+}
  desarchiver(id:any){
     const token = localStorage.getItem("Token");
     let headers = new HttpHeaders();
     headers= headers.set("Authorization",'Bearer '+token)
-    console.log(token)
-    return this.http.put(CONFIG.URL+"produit/desarchiver?id="+id,{headers:headers});
+    headers = headers.set('Content-Type', 'application/json; charset=utf-8');
+    const options = { headers: headers, responseType: 'text' as const };
+
+    return this.http.put(CONFIG.URL + "produit/desarchiver?id=" + id, null, options);
  }
  
  affihcerarchiver(){
