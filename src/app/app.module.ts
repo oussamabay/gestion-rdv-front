@@ -12,6 +12,10 @@ import { ContactComponent } from './contact/contact.component';
 import { LoginComponent } from './login/login.component';
 import {HttpClientModule} from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { GestionCategorieComponent } from './gestion-categorie/gestion-categorie.component';
+import { GestionProduitComponent } from './gestion-produit/gestion-produit.component';
+import { AjoutCategorieComponent } from './gestion-categorie/ajout-categorie/ajout-categorie.component';
+import { AjoutProduitComponent } from './gestion-produit/ajout-produit/ajout-produit.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +26,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ProduitComponent,
     UserComponent,
     ContactComponent,
-    LoginComponent
+    LoginComponent,
+    GestionCategorieComponent,
+    GestionProduitComponent,
+    AjoutCategorieComponent,
+    AjoutProduitComponent
   ],
   imports: [
     BrowserModule,

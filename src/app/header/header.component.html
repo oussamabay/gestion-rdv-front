@@ -13,8 +13,11 @@
           <li><a [routerLink]="['produit']">Produit</a></li>
           <li><a href="trainers.html">Trainers</a></li>
           <li><a href="events.html">Events</a></li>
-          <li><a [routerLink]="['user']">Utilisateur</a></li>
+          <li  *ngIf="this.profil=='Admin'"><a [routerLink]="['user']">Utilisateur</a></li>
+          <li *ngIf="this.profil=='Admin'"><a [routerLink]="['categorie']">Gestion_Catégorie</a></li>
+          <li *ngIf="this.profil=='Admin'"><a [routerLink]="['gestion-produit']">Gestion_Produit</a></li>
 
+          
           <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="#">Drop Down 1</a></li>
@@ -32,10 +35,15 @@
               <li><a href="#">Drop Down 4</a></li>
             </ul>
           </li>
-          <li><a [routerLink]="['contact']">Contact</a></li>
+          <li><a [routerLink]="['contact']">Contact  </a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
+      &nbsp;&nbsp;
+
+      <button *ngIf="this.token==null" [routerLink]="['login']" type="button" class="btn btn-secondary">Connexion</button>
+
+      <button *ngIf="this.token!=null" (click)="deconnexion()" type="button" class="btn btn-danger">Deconnexion</button>
 
       <a href="courses.html" class="get-started-btn">Get Started</a>
 
