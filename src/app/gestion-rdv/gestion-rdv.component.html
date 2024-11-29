@@ -1,0 +1,45 @@
+
+
+
+<main id="main" data-aos="fade-in">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs">
+      <div class="container">
+        <h2>Gestion RDV</h2>
+        <p>Est dolorum ut non facere possimus quibusdam eligendi voluptatem. Quia id aut similique quia voluptas sit quaerat debitis. Rerum omnis ipsam aperiam consequatur laboriosam nemo harum praesentium. </p>
+      </div>
+    </div><!-- End Breadcrumbs -->
+
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Nom Produit</th>
+            <th scope="col">Email Client</th>
+            <th scope="col">Accepter</th>
+            <th scope="col">Choisir Date</th>
+         
+         
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let p of allrdv">
+            <td *ngIf="!p.accepter">{{p?.date}}</td>
+            <td *ngIf="!p.accepter">{{p?.commande?.produit?.nom}}</td>
+            <td *ngIf="!p.accepter">{{p?.commande?.user?.email}}</td>
+            <td *ngIf="!p.accepter"><button type="button"  (click)="accepter(p.id)" class="btn btn-success">Accepter</button></td>
+
+            <td *ngIf="!p.accepter"><a [routerLink]="['../choisir-date',{id:p.id}]" type="button" class="btn btn-warning">Choisir date</a></td>
+
+       
+         
+          
+          </tr>
+        
+        </tbody>
+      </table>
+
+<br><br><br>
+
+  </main><!-- End #main -->

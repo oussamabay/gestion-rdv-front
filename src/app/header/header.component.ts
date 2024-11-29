@@ -20,6 +20,6 @@ ngOnInit(){
     localStorage.removeItem("Token")
     localStorage.removeItem("Email")
     localStorage.removeItem("Role")
-    window.location.reload();
+    window.location.href='';
   }
 }

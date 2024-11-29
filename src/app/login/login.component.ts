@@ -19,7 +19,7 @@ ngOnInit(){
 connexion(){
   this.service.login(this.login.value).subscribe((res)=>{
     window.alert("connexion avec succées")
-    window.location.reload();
+    window.location.href='';
   })
 
 }

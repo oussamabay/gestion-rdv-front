@@ -22,8 +22,9 @@
                   <p class="price">{{p?.prix}} TND</p> <br>
                   <p class="price">{{p?.qte}} piéces </p>
                 </div>
+                <h3 *ngIf="this.token==null" ><a [routerLink]="['../login']" >{{p?.nom}}</a></h3>
 
-                <h3><a href="course-details.html">{{p?.nom}}</a></h3>
+                <h3 *ngIf="this.token!=null"><a  [routerLink]="['../commande',{id:p.id}]"  >{{p?.nom}}</a></h3>
                 <p>{{p?.description}}</p>
                
               </div>

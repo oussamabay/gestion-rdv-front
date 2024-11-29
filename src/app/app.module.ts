@@ -16,6 +16,12 @@ import { GestionCategorieComponent } from './gestion-categorie/gestion-categorie
 import { GestionProduitComponent } from './gestion-produit/gestion-produit.component';
 import { AjoutCategorieComponent } from './gestion-categorie/ajout-categorie/ajout-categorie.component';
 import { AjoutProduitComponent } from './gestion-produit/ajout-produit/ajout-produit.component';
+import { CommandeComponent } from './commande/commande.component';
+import { MesCommandeComponent } from './commande/mes-commande/mes-commande.component';
+import { GestionRdvComponent } from './gestion-rdv/gestion-rdv.component';
+import { AjoutRdvComponent } from './gestion-rdv/ajout-rdv/ajout-rdv.component';
+import { ChoisirDateComponent } from './gestion-rdv/choisir-date/choisir-date.component';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -30,7 +36,12 @@ import { AjoutProduitComponent } from './gestion-produit/ajout-produit/ajout-pro
     GestionCategorieComponent,
     GestionProduitComponent,
     AjoutCategorieComponent,
-    AjoutProduitComponent
+    AjoutProduitComponent,
+    CommandeComponent,
+    MesCommandeComponent,
+    GestionRdvComponent,
+    AjoutRdvComponent,
+    ChoisirDateComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +51,7 @@ import { AjoutProduitComponent } from './gestion-produit/ajout-produit/ajout-pro
     ReactiveFormsModule
 
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
